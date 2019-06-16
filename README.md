@@ -23,34 +23,30 @@ We can control the car by voice and pass the control message to the remote car.
    - The **ARC** receives the message and parse the message to PWM value for car.
    - The **esp8266** transmits the message to car by WiFi (Remote control).
    - The **Rpi3** gets the PWM value and pass to STM32 that don't have WiFi module.
-   - The **STM32* outputs the PWM to the pair of wheel.
+   - The **STM32** outputs the PWM to the pair of wheel.
    ![image](https://github.com/siang0128/Voice_Control_Car/blob/master/picture/Architecture.JPG)
 # Hardware and Software Setup
 ## Required Hardware   
-   - 1 DesignWare ARC EM Starter Kit(EMSK)
-   - 1 Posture sensor(JY-901)
-   - 1 Voice composite module(SYN6288)
-   - 1 AD converter(PmodAD2)
-   - 1 OLED display module(SSD1306)
-   - 1 Voice recognition module(YS-LDV7)
-   - 1 GPS module(C3-470A)
-   - 1 GPRS module(SIM900A)
+   - 1 Voice recognition module (LD-3320)
+   - 1 ARC iot Development Kit (ARC iotdk)
+   - 1 WiFi module(ESP8266)
+   - 1 Raspberry pi 3
+   - 1 STM32 32-bit Arm Cortex MCUs (STM32F446RE)
    - 1 SD Card
-   
+   - 1 Edimax 5G dongle
+   - 1 Motor driven (L298N)
+   - 1 Boost converter (XL6009)
+   - 2 Wheel
+
 ## Required Software
-   - ARC GNU Toolset
-   - Serial port terminal, such as putty, tera-term or minicom
+   - ARC GNU Toolchain
+   - Serial port terminal, such as putty
+   - System Workbench for STM32 (SW4STM32)
+   - STM32CubeMX
+
 
 ## Hardware Connection
-   1. The EMSK implement smart gloves,it will processe the data collected by sensors and translate gestures to corresponding sign language, we can get the corresponding sign language information by displaying text and making voice.
-      - Connect **Posture sensor** to **J1**(Using UART interface)
-      - Connect **Voice composite module**, **AD converter** and **GPRS module** to **J4**(Using I2C interface)
-      - Connect **GPS module** to **J5**(Using UART interface)
-      - Connect **OLED display module** to **J2**(Using I2C interface)
-      - Connect **Voice recognition module** to **J3**
-   2. Configure your EMSKs with proper core configuration
-   - EMSK connection
-   ![image](https://github.com/mk997630105/Master-Sign-Language/blob/master/Screenshots/connection.jpg)
+   
    
 # User Manual
 ## Before Running This Application
@@ -114,7 +110,3 @@ line 107: change
 | judge            | match the collected data with the sample database  |
 
 # Demo Video
-[Link](http://v.youku.com/v_show/id_XMzYyNzM2NTc1Mg==.html?spm=a2h3j.8428770.3416059.1)
-
-
-[40]: http://embarc.org/embarc_osp/doc/embARC_Document/html/page_example.html   " embARC Example User Guide"
