@@ -16,13 +16,14 @@ This application is designed to control car by voice. Extending to control anyth
  <!-- markdown-toc end -->
 
 # Introduction
-The master sign language can help deaf-mute to communicate with normal people.
+We can control the car by voice and pass the control message to the remote car.
 ## Function
 ## System Architecture
-   As shown in the figure below, the system consists of **three parts: input, master, and output**.
-   - The **input** include collecting gesture data,recognizing the voice of normal people and positioning the location of the user.
-   - The **master** is composed of an ARC processor. It mainly performs data processing and matching with a gesture library according to an algorithm, and sends a corresponding command to the output terminal at the same time.
-   - The **output** include displaying the corresponding text,playing the corresponding voice and senging message to guardian.
+   - The **LD-3320** listens to user and recognize the voice to commend, and the pass to ARC.
+   - The **ARC** receives the message and parse the message to PWM value for car.
+   - The **esp8266** transmits the message to car by WiFi (Remote control).
+   - The **Rpi3** gets the PWM value and pass to STM32 that don't have WiFi module.
+   - The **STM32* outputs the PWM to the pair of wheel.
    ![image](https://github.com/siang0128/Voice_Control_Car/blob/master/picture/Architecture.JPG)
 # Hardware and Software Setup
 ## Required Hardware   
